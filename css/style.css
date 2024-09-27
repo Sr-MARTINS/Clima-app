@@ -1,15 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family:"Fredoka", sans-serif;
 }
 
-#container {
-    display:git  flex;
-    justify-content: center;
-    align-content: center;
-    height: 100%;
 
+#container {
+    margin: 2rem auto;
     border: 1px solid black;
+    max-width: 340px;
     padding: 10px;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+#pesque {
+    padding: 17px;
+}
+#pesque input {
+    width: 230px;
+    height: 33px;
+    border-radius:1rem ;
+}
+#pesque button {
+    padding: 6px;
+    font-weight: bold;
+    font-weight: 20px;
+    border: none;
+}
+#pesque i {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+#clima {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 309px;
+    border: 1px solid black;
+}
+.box-temp {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    
+}
+.box-temp #img {
+    width: 200px;
+}
+.box-temp #img  img{
+    width: 130px;
+    margin: auto 20px;
+}
+.box-temp #lement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#clima-cards {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.cards {
+    width: 100px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.cards h4 {
+    letter-spacing: 1px;
+    font-weight: 600;
 }
