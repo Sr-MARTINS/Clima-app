@@ -2,6 +2,8 @@
 // const btnBusc = document.querySelector("#btnFrom");
 // const title = document.querySelector("#title")
 const msgAlert = document.querySelector("#alert")
+const tempGrau = document.querySelector("#temp-value")
+const decripTemp = document.querySelector("#temp-decrip")
 
 document.querySelector("#btnFrom").addEventListener("click", async (e) => {
     e.preventDefault()
@@ -17,6 +19,7 @@ document.querySelector("#btnFrom").addEventListener("click", async (e) => {
 
     const results = await fetch(apiUrl);
     const json = await results.json();
+    
 
     if(json.cod == 200) {
         showInf ({
@@ -33,15 +36,20 @@ document.querySelector("#btnFrom").addEventListener("click", async (e) => {
     }else {
         showAlert('Não foi possivel localizar...');
     }
-    console.log(json.name)
+    
 })
 
-function showInf (json) {
+const showInf = (json) => {
     showAlert(' ');
-
+    
+    console.log(json)
     document.querySelector(".clima").classList.add("show")
 
-    document.querySelector("#title").innerHTML = `${json.name}`
+    document.querySelector("#title").innerHTML = `${json.city} - ${json.cuontry} `
+
+    tempGrau.innerHTML = `${json.temp.toFixed(1).toString().replace('.' , ',')} <span>ºC</span>`
+    
+    decripTemp.innerHTML = `${json.description}`
 }
 
 function showAlert (msg) {
