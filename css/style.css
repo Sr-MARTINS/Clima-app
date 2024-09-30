@@ -13,7 +13,6 @@ body {
     height: 100vh;
     background-color: #0056c767;
 }
-
 .container{
     border: 1px solid #00000067;
     padding: 8px;   
@@ -23,7 +22,6 @@ body {
     align-items: center;  
     background-color: #f0f8ff;  
     box-shadow: 0 0 10px 2px #0000005e;
-    transition: 1s;
 }
 
 #pesque {
@@ -76,7 +74,6 @@ body {
 }
 .clima.show {
     display: block;
-    transition: 10s
 }
 .clima h2 {
     font-size: 2rem;
