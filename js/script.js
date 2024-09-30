@@ -1,14 +1,18 @@
 
-// const btnBusc = document.querySelector("#btnFrom");
-// const title = document.querySelector("#title")
+const LocalBusc = document.querySelector("#inEstats");
+const btnBusc = document.querySelector("#btnFrom")
 const msgAlert = document.querySelector("#alert")
 const tempGrau = document.querySelector("#temp-value")
 const decripTemp = document.querySelector("#temp-decrip")
+const tempMax = document.querySelector("#temp-max");
+const tempMin = document.querySelector("#temp-min");
+const humidity = document.querySelector("#humidity");
+const windSeep = document.querySelector("#windSeep");
 
 document.querySelector("#btnFrom").addEventListener("click", async (e) => {
     e.preventDefault()
 
-    const buscLoc = document.querySelector("#inEstats").value;
+    const buscLoc = LocalBusc.value;
     
     if(!buscLoc) {
         return showAlert("Você precisa digitar uma cidade...")
@@ -34,7 +38,12 @@ document.querySelector("#btnFrom").addEventListener("click", async (e) => {
             humidity: json.main.humidity,
         })
     }else {
-        showAlert('Não foi possivel localizar...');
+        showAlert(`
+        <p>  Não foi possivel localizar... </p>
+        
+        <img style="width: 50%" 
+            src="img/buscador.png" alt="busc">
+        `);    
     }
     
 })
@@ -49,10 +58,32 @@ const showInf = (json) => {
 
     tempGrau.innerHTML = `${json.temp.toFixed(1).toString().replace('.' , ',')} <span>ºC</span>`
     
-    decripTemp.innerHTML = `${json.description}`
+    decripTemp.innerHTML = `${json.description}`;
+
+    tempMax.innerHTML = `${json.tempMax.toFixed(1)} <span>ºC</span>`;
+    tempMin.innerHTML = `${json.tempMin.toFixed(1)} <span>ºC</span>`;
+
+    humidity.innerHTML = `${json.humidity} <span>%</span>`;
+
+    windSeep.innerHTML = `${json.windSpeed}<span>km/h</span>`;
+
+    document.querySelector("#temp-img").setAttribute('src', `http://openweathermap.org/img/wn/${json.tempIcon}@2x.png)`) 
 }
 
 function showAlert (msg) {
         msgAlert.innerHTML = msg;
 };
 
+btnBusc.addEventListener("keydow", (e) => {
+    if(e.key === "Enter") {
+        document.getElementById("#btnFrom").click
+    }
+})
+
+
+LocalBusc.addEventListener("keyup", () => {
+    if(!LocalBusc.value) {
+        document.querySelector(".clima").classList.remove('show');
+        document.querySelector(".clima").classList.remove('alert');
+    }
+})

@@ -76,6 +76,7 @@ body {
 }
 .clima.show {
     display: block;
+    transition: all .5s;
 }
 .clima h2 {
     font-size: 2rem;
@@ -148,3 +149,15 @@ body {
 .bi-wind {
     color: #b45f9b;
 }
+
+.alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.alert p {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 5px
+};
