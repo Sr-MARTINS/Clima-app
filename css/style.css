@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #0056c767;
 }
 
 .container{
@@ -21,13 +22,12 @@ body {
     flex-direction: column;
     align-items: center;  
     background-color: #f0f8ff;  
-    box-shadow: 2px 4px 6px #0000005e;
-    transition: .5s;
+    box-shadow: 0 0 10px 2px #0000005e;
+    transition: 1s;
 }
 
 #pesque {
     display: flex;
-    justify-content: space-e;
     margin: .5rem;
 }
 #pesque form {
@@ -71,12 +71,12 @@ body {
     flex-direction: column;
     width: 290px;
     padding: 5px;
-    transition: 1s;
+    transition: 10s;
     display: none;   
 }
 .clima.show {
     display: block;
-    transition: all .5s;
+    transition: 10s
 }
 .clima h2 {
     font-size: 2rem;
@@ -85,9 +85,10 @@ body {
 }
 .box-temp {
     display: flex;
-    border: 1px solid black;
+    border: 1px solid #0000009f;
     border-radius: 1rem;
     padding: 10px;
+    background-color: #635aa8a7;
 }
 .box-temp #img {
     width: 40%;
